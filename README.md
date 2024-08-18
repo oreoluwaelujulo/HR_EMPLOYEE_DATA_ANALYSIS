@@ -42,24 +42,29 @@ IGNORE 1 LINES;
  ----------------------------------------------------------------------------------------------------------------------------------------------
 ## -- DATA CLEANING 
  
- -- clean date incosistencies from birthdate
+ -- clean date inconsistencies from birthdate
+ 
  SELECT birth_date, REPLACE (birth_date, "/", "-")
  FROM hr_data;
  
 UPDATE hr_data
 SET birth_date = REPLACE (birth_date, "/", "-");
+
  -- convert string to date
+ 
  UPDATE hr_data
  SET birth_date= str_to_date(birth_date,"%m-%d-%Y");
  
 /* -- cleaning the date of bogus year(s)
  -- Remove all years with 2069
- In the US, retirement dates around 65 years making the year 1959 alterand the least age of employment is 18years old born 1995*/
+ In the US, retirement dates around 65 years making the year 1959 alter and the least age of employment is 18 years old born in 1995*/
  -- Find all birthdates above 65years 
+ 
 SELECT birth_date,
        TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) AS AGE
 FROM hr_data
 WHERE TIMESTAMPDIFF(YEAR, birth_date, CURDATE()) > 65;
+
 -- Returned no results
 
 
