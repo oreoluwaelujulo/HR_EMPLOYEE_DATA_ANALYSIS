@@ -2,7 +2,7 @@
 ## HR DATA INSIGHT
 The dataset gives details of a company in Cleveland, Ohio in the United States, with 22214  rows of data.
 
-To understand the company through the data, a couple of questions were asked and the data was probed using SQL.
+To understand the company through the data, a couple of questions were asked and the data was probed using SQL. 
 
 ## QUESTIONS
 1. What is the gender breakdown in the Company?
